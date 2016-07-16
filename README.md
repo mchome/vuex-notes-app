@@ -17,6 +17,9 @@ npm install
 npm run dev
 ```
 
+## 项目预览
+
+[预览地址](https://mchome.github.io/vuex-notes-app)
 
 
 ## 常见问题

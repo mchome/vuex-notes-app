@@ -7,6 +7,8 @@
 </template>
 
 <style>
+  @import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
+  
   html, #app {
     height: 100%;
   }
@@ -18,6 +20,8 @@
     height: 100%;
     max-height: 100%;
     position: relative;
+    font-family: "Segoe UI", Roboto, Helvetica, "Microsoft YaHei", Arial, sans-serif;
+    letter-spacing: 0.1em;
   }
 </style>
 

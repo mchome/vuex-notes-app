@@ -13,9 +13,17 @@ const state = {
 const mutations = {
   // 初始化 state
   INIT_STORE(state, data) {
-    state.notes = data.notes,
-    state.show = data.show;
-    state.activeNote = data.activeNote;
+    if (localStorage.length !== 0 && /[0-9]{13}/.test(localStorage.key(0))) {
+      for (var items in localStorage) {
+        state.notes.push(JSON.parse(localStorage.getItem(items)));
+        state.show = data.show;
+        state.activeNote = state.notes[0];
+      }
+    } else {
+      state.notes = data.notes;
+      state.show = data.show;
+      state.activeNote = data.activeNote;
+    }
   },
   // 新增笔记
   NEW_NOTE(state) {
@@ -27,6 +35,7 @@ const mutations = {
     };
     state.notes.push(newNote);
     state.activeNote = newNote;
+    localStorage.setItem(newNote.id, JSON.stringify(newNote));
   },
   // 修改笔记
   EDIT_NOTE(state, note) {
@@ -38,15 +47,18 @@ const mutations = {
         break;
       }
     };
+    localStorage.setItem(note.id, JSON.stringify(note));
   },
   // 删除笔记
   DELETE_NOTE(state) {
     state.notes.$remove(state.activeNote);
+    localStorage.removeItem(state.activeNote.id);
     state.activeNote = state.notes[0] || {};
   },
   // 切换笔记的收藏与取消收藏
   TOGGLE_FAVORITE(state) {
     state.activeNote.favorite = !state.activeNote.favorite;
+    localStorage.setItem(state.activeNote.id, JSON.stringify(state.activeNote));    
   },
   // 切换显示数据列表类型：全部 or 收藏
   SET_SHOW_ALL(state, show){

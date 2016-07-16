@@ -1,26 +1,26 @@
 <template>
   <div id="notes-list">
     <div id="list-header">
-      <h2>Notes | heavenru.com</h2>
+      <h2>笔记</h2>
       <div class="btn-group btn-group-justified" role="group">
         <!-- all -->
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-default"
             @click="toggleShow('all')"
-            :class="{active: show === 'all'}">All Notes</button>
+            :class="{active: show === 'all'}">全部笔记</button>
         </div>
 
         <!-- favorites -->
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-default"
             @click="toggleShow('favorite')"
-            :class="{active: show === 'favorite'}">Favorites</button>
+            :class="{active: show === 'favorite'}">收藏</button>
         </div>
       </div>
 
       <div class="btn-group btn-group-justified" role="group">
         <div class="input-group search">
-          <input type="text" class="form-control" v-model="search" placeholder="Search for...">
+          <input type="text" class="form-control" v-model="search" placeholder="搜索 ...">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-search"></i>
           </span>
@@ -80,7 +80,6 @@
     width: 300px;
     height: 100%;
     background-color: #F5F5F5;
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
 
     #list-header{
@@ -107,6 +106,7 @@
       padding: 0;
 
       .list-group-item{
+        height: 35px;
         border: 0;
         border-radius: 0;
 

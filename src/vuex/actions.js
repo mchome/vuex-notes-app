@@ -4,8 +4,8 @@ function makeAction(type) {
 
 const initNote = {
   id: +new Date(),
-  title: '我的笔记',
-  content: '第一篇笔记内容',
+  title: '',
+  content: '',
   favorite: false
 };
 
